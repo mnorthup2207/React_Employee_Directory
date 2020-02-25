@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import employeeInfo from "./utils/API"
 import SearchBar from './components/SearchBar';
 import EmployeeTable from './components/EmployeeTable';
 import DayDetails from './components/DayDetails';
+import API from './utils/API';
 
 const App = () => {
     const [data, setData] = useState({
         searchTerm: "",
         selectedEmployee: null,
-        employeeData: ""
+        employeeData: []
     });
     const { searchTerm, selectedEmployee, employeeData  } = data;
+
+    useEffect(() => {
+        API.search().then(res => setData({...data, employeeData: res.data.data}))
+    }, [])
 
     const handleInputChange = e => {
         const { name, value } = e.target;
@@ -34,7 +40,7 @@ const App = () => {
                 </Col>
             </Row>
             <Row>
-                    <EmployeeTable />
+                    <EmployeeTable employees={employeeData} />
             </Row>
             <Row>
                 <Col>
