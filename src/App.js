@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import moment from 'moment'
-import sampleData from './data/sample.json'
 import SearchBar from './components/SearchBar';
-import DayCard from './components/DayCard';
+import EmployeeTable from './components/EmployeeTable';
 import DayDetails from './components/DayDetails';
 
 const App = () => {
-    const [weatherInfo, setWeatherInfo] = useState({
+    const [data, setData] = useState({
         searchTerm: "",
-        selectedDay: null,
-        days: sampleData.data,
-        location: "Denver, CO",
-        // days: [],
-        // location: ""
+        selectedEmployee: null,
+        employeeData: ""
     });
-    const { searchTerm, selectedDay, days, location } = weatherInfo;
+    const { searchTerm, selectedEmployee, employeeData  } = data;
 
     const handleInputChange = e => {
         const { name, value } = e.target;
-        setWeatherInfo({
-            ...weatherInfo,
+        setData({
+            ...data,
             [name]: value
         });
     }
@@ -28,35 +23,22 @@ const App = () => {
     return (
         <Container>
             <Row>
-                <Col md={7}>
-                    <h1>Weather Info for {location}</h1>
-                </Col>
                 <Col md={5}>
+                    <h1>Emp|Locker</h1>
+                </Col>
+                <Col md={7}>
                     <SearchBar
-                        searchTerm={searchTerm}
+                        // searchTerm={}
                         handleInputChange={handleInputChange}
                     />
                 </Col>
             </Row>
             <Row>
-                {days.map(day => (
-                    <DayCard
-                        key={day.ts}
-                        day={moment(day.valid_date, "YYYY-MM-DD").format("dddd")}
-                        icon={day.weather.icon}
-                        description={day.weather.description}
-                        temp={day.temp}
-                        high={day.max_temp}
-                        low={day.low_temp}
-                        precip={day.pop}
-                        isSelected={day === selectedDay}
-                        selectDay={() => setWeatherInfo({...weatherInfo, selectedDay: day})}
-                    />
-                ))}
+                    <EmployeeTable />
             </Row>
             <Row>
                 <Col>
-                    {selectedDay ? (
+                    {/* {selectedDay ? (
                         <DayDetails 
                         day={moment(selectedDay.valid_date, "YYYY-MM-DD").format("dddd, MMMM Do, YYYY ")}
                         icon={selectedDay.weather.icon}
@@ -68,7 +50,7 @@ const App = () => {
                         />
                     ): (
                         <h3>Click on a day above to view details.</h3>
-                    )}
+                    )} */}
                 </Col>
             </Row>
 

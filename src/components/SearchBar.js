@@ -6,12 +6,12 @@ const SearchBar = props => {
     return (
         <FormWrapper inline>
             <FormGroup>
-                <Label for="searchTerm" hidden>Search Locations</Label>
+                <Label for="searchTerm" hidden>Search By Employee Number/I.D.</Label>
                 <Input 
                     type="text" 
                     name="searchTerm" 
                     id="searchTerm" 
-                    placeholder="Denver, CO OR Statue of Liberty OR 80111" 
+                    placeholder="Search By Employee Number/I.D." 
                     onChange={props.handleInputChange}
                     value={props.searchTerm}    
                 />
