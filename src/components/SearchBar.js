@@ -5,6 +5,8 @@ import { FormWrapper } from '../styles';
 const SearchBar = props => {
     return (
         <FormWrapper inline>
+            <Button>Sort By Employee Salary</Button>    
+            <Button>Sort By Employee Age</Button>    
             <FormGroup>
                 <Label for="searchTerm" hidden>Search By Employee Number/I.D.</Label>
                 <Input 

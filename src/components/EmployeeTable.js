@@ -1,10 +1,10 @@
 import React from 'react';
 import { Table, Col } from 'reactstrap';
-import { CardWrapper } from '../styles'
+
+
 
 const EmployeeTable = props => {
     console.log(props);
-
     return (
         <Col>
             <Table dark>
@@ -22,7 +22,7 @@ const EmployeeTable = props => {
                             <th scope="row">{employee.id}</th>
                             <td>{employee.employee_name}</td>
                             <td>{employee.employee_age}</td>
-                            <td>${employee.employee_salary}</td>
+                            <td>${employee.employee_salary.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</td>
                         </tr>
                     </tbody>
                 ))}
