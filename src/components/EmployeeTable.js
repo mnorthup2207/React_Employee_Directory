@@ -1,10 +1,9 @@
 import React from 'react';
 import { Table, Col } from 'reactstrap';
 
-
-
-const EmployeeTable = props => {
+const EmployeeTable = props => {    
     console.log(props);
+    
     return (
         <Col>
             <Table dark>
@@ -16,16 +15,16 @@ const EmployeeTable = props => {
                         <th>Employee Salary</th>
                     </tr>
                 </thead>
-                {props.employees.map(employee => (
                     <tbody>
-                        <tr>
+                        {props.employees.map(employee => (
+                        <tr key={employee.id}>
                             <th scope="row">{employee.id}</th>
                             <td>{employee.employee_name}</td>
                             <td>{employee.employee_age}</td>
                             <td>${employee.employee_salary.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</td>
                         </tr>
-                    </tbody>
-                ))}
+                        ))}
+                </tbody>
             </Table>
         </Col>
     )

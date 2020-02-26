@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Form } from 'reactstrap';
 
 export const FormWrapper = styled(Form)`
-    margin-top: .5rem;
+    padding: 1rem;
+    margin: 0 auto;
     input.form-control {
         width: 350px;
     }
