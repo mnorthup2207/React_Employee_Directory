@@ -12,4 +12,4 @@
 - The application utilizes two components and acceses one API call through the axios npm package. 
 
 ## Link to Deployed Project
-https://mnorthup2207.github.io/EasiCuisi_recipe_API/.
+https://vast-bastion-42286.herokuapp.com/
